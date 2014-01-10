@@ -12,7 +12,8 @@ public class AppFacade implements Runnable {
 	 * @param _args
 	 * @throws Exception
 	 */
-	public static void startJob(IJobLogic jobLogic,String jobName,String[] _args) throws Exception{
+	public static void startJob(IJobLogic _jobLogic,String jobName,String[] _args) throws Exception{
+		jobLogic = _jobLogic;
 		//注册关闭钩子，服务停止运行，记录日志
 		Thread t = new Thread(new ShutdownHook());
 		Runtime.getRuntime().addShutdownHook(t);
